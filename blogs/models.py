@@ -1,7 +1,8 @@
 from django.db import models
 
-class CategoryModel(models.Model):
-    category_name = models.CharField(max_length=125)
+class BlogCategoryModel(models.Model):
+    title = models.CharField(max_length=125)
+    parrent = models.ForeignKey('self', )
 
     craeted_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
@@ -26,4 +27,11 @@ class RecentPointModel(models.Model):
     class Meta:
         verbose_name = 'Recent Posts'
     
-class 
+class BlogTagModel(models.Model):
+    tag_name = models.CharField(max_length=125)
+
+    def __str__(self):
+        return self.tag_name
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
