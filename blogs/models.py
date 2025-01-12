@@ -2,7 +2,7 @@ from django.db import models
 
 class BlogCategoryModel(models.Model):
     title = models.CharField(max_length=125)
-    parrent = models.ForeignKey('self', )
+    parrent = models.ForeignKey('self', on_delete=models.CASCADE)
 
     craeted_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
