@@ -45,7 +45,7 @@ class BlogModel(BaseModel):
     description = models.TextField()
 
     author = models.ManyToManyField(BlogAuthorModel, related_name='blogs')
-    categories = models.ManyToManyField(BlogCategoryModel, related_name='blogs')
+    categories = models.ManyToManyField(BlogCategoryModel, related_name='blog')
     
     def __str__(self):
         return self.title
@@ -58,7 +58,7 @@ class BlogCommentModel(BaseModel):
     comment = models.CharField(max_length=125)
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='blog_comments')
 
-    author = models.ManyToManyField(BlogAuthorModel, related_name='blogs')
+    author = models.ManyToManyField(BlogAuthorModel, related_name='blog_author')
     categories = models.ManyToManyField(BlogCategoryModel, related_name='blogs')
     
     def __str__(self):
