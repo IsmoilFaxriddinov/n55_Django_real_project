@@ -47,7 +47,12 @@
 </head>
 
 <body {% block body %}{% endblock %}>
+{% url "pages:home" as home_url%}
+{% if request.path == home_url %}
+    {% include "layouts/header-home.html" %}
+{% else %}
     {% include "layouts/header-base.html" %}
+{% endif %}
 
     {% block content %}
     {% endblock %}
