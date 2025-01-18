@@ -7,10 +7,22 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
+class ColorModel(BaseModel):
+    heh_code = models.CharField(max_length=125)
+    color_name = models.CharField(max_length=125)
+
+    def __str__(self):
+        return self.color_name
+    
+    class Meta:
+        verbose_name = 'color'
+        verbose_name_plural = 'colors'
+
 class ProductModel(BaseModel):
     image = models.ImageField(upload_to='products/')
     image2 = models.ImageField(upload_to='products/')
     title = models.CharField(max_length=125)
+    color = models.ForeignKey(ColorModel, on_delete=models.CASCADE, null=True, blank=True)
     price = models.FloatField()
     description = models.TextField
 
@@ -31,17 +43,6 @@ class ProductCategoryModel(BaseModel):
     class Meta:
         verbose_name = ('blog category')
         verbose_name_plural = ('blog cetegories')
-
-class ColorModel(BaseModel):
-    heh_code = models.IntegerField()
-    color_name = models.CharField(max_length=125)
-
-    def __str__(self):
-        return self.color_name
-    
-    class Meta:
-        verbose_name = 'color'
-        verbose_name_plural = 'colors'
 
 class TagModel(BaseModel):
     name = models.CharField(max_length=125)
