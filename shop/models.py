@@ -12,6 +12,7 @@ class ProductModel(BaseModel):
     image2 = models.ImageField(upload_to='products/')
     title = models.CharField(max_length=125)
     price = models.FloatField()
+    description = models.TextField
 
     def __str__(self):
         return self.title
@@ -51,3 +52,13 @@ class TagModel(BaseModel):
     class Meta:
         verbose_name = 'tag'
         verbose_name_plural = 'tags'
+    
+# class PriceModel(BaseModel):
+#     price = models.FloatField()
+
+#     def __str__(self):
+#         return self.price
+    
+#     class Meta:
+#         verbose_name = 'price'
+#         verbose_name_plural = 'prices'
