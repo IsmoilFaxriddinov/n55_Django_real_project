@@ -4,13 +4,21 @@ class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
+    class Meta:
+        abstract = True
+
 class ProductModel(BaseModel):
     image = models.ImageField(upload_to='products/')
+    image2 = models.ImageField(upload_to='products/')
     title = models.CharField(max_length=125)
     price = models.FloatField()
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
 class ProductCategoryModel(BaseModel):
     title = models.CharField(max_length=125, verbose_name=('title'))
@@ -29,9 +37,17 @@ class ColorModel(BaseModel):
 
     def __str__(self):
         return self.color_name
+    
+    class Meta:
+        verbose_name = 'color'
+        verbose_name_plural = 'colors'
 
 class TagModel(BaseModel):
     name = models.CharField(max_length=125)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'tag'
+        verbose_name_plural = 'tags'
