@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load my_tags %}
 <header>
     <!-- header left mobie -->
     <div class="header-mobile d-md-none">
@@ -297,7 +298,8 @@
                         <div class="dropdown-language myaccount-title">
                             <a href="#language" data-toggle="collapse" class="acount">
                                 <span class="expand-more">
-                                    English
+                                    {% get_current_language as active_lang %}
+                                    {{ active_lang|upper }}
                                 </span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
@@ -306,7 +308,7 @@
                             <div class="language-list-content">
                                 {% for language in all_languages%}
                                 <div class="language-item language-list-content {% if forloop.counter == 1 %}current flex-first{% endif %}">
-                                    <a href="{% url "pages:home" %}/{{ language.0 }}">
+                                    <a href="{% get_lang_url request language.0 %}">
                                         <span>{{ language.1|upper }}</span>
                                     </a>
                                 </div>
