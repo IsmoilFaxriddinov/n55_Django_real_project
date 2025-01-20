@@ -45,6 +45,8 @@ class BlogModel(BaseModel):
 
     author = models.ManyToManyField(BlogAuthorModel, verbose_name=('blogs'))
     categories = models.ManyToManyField(BlogCategoryModel, verbose_name=_('categories'))
+    tags = models.ManyToManyField(BlogTagModel, related_name='tags', verbose_name=_('tags'))
+
     
     def __str__(self):
         return self.title
