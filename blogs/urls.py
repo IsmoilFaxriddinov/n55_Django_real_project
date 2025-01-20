@@ -5,5 +5,5 @@ from blogs.views import BlogListView
 app_name="blogs"
 
 urlpatterns = [
-    path('blogs/', BlogListView.as_view(), name='blogs')
+    path('blogs/', BlogListView.as_view(), name='list')
 ]
