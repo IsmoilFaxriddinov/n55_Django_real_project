@@ -299,7 +299,7 @@
                             <a href="#language" data-toggle="collapse" class="acount">
                                 <span class="expand-more">
                                     {% get_current_language as active_lang %}
-                                    {{ active_lang|upper }}
+                                    {{ get_lang_flag }}{{ active_lang|upper }}
                                 </span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
