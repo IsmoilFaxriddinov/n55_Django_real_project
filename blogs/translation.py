@@ -2,8 +2,8 @@ from modeltranslation.translator import register, TranslationOptions
 from . import models
 
 @register(models.BlogCategoryModel)
-class BlogCategoryTranslationOption(TranslationOptions):
-    fields = ('title')
+class BlogCategoryTranslationOptions(TranslationOptions):
+    fields = ('title',)
 
 @register(models.BlogTagModel)
 class BlogTagTranslationOption(TranslationOptions):
