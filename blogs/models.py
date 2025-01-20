@@ -30,8 +30,6 @@ class BlogAuthorModel(BaseModel):
     first_name = models.CharField(max_length=125, verbose_name=_('first_name'))
     last_name = models.CharField(max_length=125, verbose_name=_('last_name'))
     avatar = models.ImageField(upload_to='blogs/avatars/', verbose_name=_('avatar'))
-    title = models.CharField(max_length=125, verbose_name=_('title'))
-    parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, verbose_name=_('parent'))
 
     def __str__(self):
         return self.first_name
