@@ -129,7 +129,7 @@
                                                 <a href="blog-detail.html">{{ blog.title }}</a>
                                             </p>
                                             <p class="post-info">
-                                                <span>{{ blog.created_at }}</span>
+                                                <span>{{ blog.created_at|timesince }}</span>
                                                 <span>{{ blog.comment.count }} Comments</span>
                                                 {% for author in blog.author.all %}
                                                 <span>{{ author.first_name }} |</span>
