@@ -58,6 +58,7 @@ class BlogModel(BaseModel):
 class BlogCommentModel(BaseModel):
     comment = models.CharField(max_length=125, verbose_name=_('comment'))
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='blog_comments', verbose_name=_('user'))
+    blog = models.ForeignKey(BlogModel, on_delete=models.CASCADE, related_name='blog ')
 
     author = models.ManyToManyField(BlogAuthorModel, verbose_name=_('blog_author'))
     categories = models.ManyToManyField(BlogCategoryModel, verbose_name=_('blogs'))
