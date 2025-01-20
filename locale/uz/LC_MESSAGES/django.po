@@ -101,23 +101,23 @@ msgstr "blog"
 
 #: .\blogs\models.py:69
 msgid "Blog comment"
-msgstr ""
+msgstr "blog commentariyasi"
 
 #: .\blogs\models.py:70
 msgid "Blog comments"
-msgstr ""
+msgstr "blog commentariyalari"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
-msgstr ""
+msgstr "xabar"
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
-msgstr ""
+msgstr "site xaritasi"
 
 #: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
 msgid "Static Files"
-msgstr ""
+msgstr "static fayllar"
 
 #: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
 msgid "Syndication"
