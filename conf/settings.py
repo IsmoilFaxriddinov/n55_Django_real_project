@@ -122,7 +122,7 @@ LOCALE_PATHS = (BASE_DIR / 'locale',)
 
 TIME_ZONE = 'Asia/Tashkent'
 
-USE_I18N = False
+USE_I18N = True
 
 USE_TZ = True
 

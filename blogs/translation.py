@@ -7,12 +7,12 @@ class BlogCategoryTranslationOptions(TranslationOptions):
 
 @register(models.BlogTagModel)
 class BlogTagTranslationOption(TranslationOptions):
-    fields = ('title')
+    fields = ('title',)
 
 @register(models.BlogAuthorModel)
 class BlogAuthorTranslationOption(TranslationOptions):
     fields = ('first_name', 'last_name')
 
 @register(models.BlogModel)
-class BlogCategoryTranslationOption(TranslationOptions):
+class BlogModelTranslationOption(TranslationOptions):
     fields = ('title', 'description')
