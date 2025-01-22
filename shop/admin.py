@@ -1,7 +1,9 @@
 from django.contrib import admin
-from shop.models import ProductModel, ProductCategoryModel, TagModel, ColorModel
+from shop.models import ColorModel, ProductCategoryModel, ProductImageModel, ProductModel, ProductSizeModel, TagModel
 
-admin.site.register(ProductModel)
+admin.site.register(ColorModel)
 admin.site.register(ProductCategoryModel)
 admin.site.register(TagModel)
-admin.site.register(ColorModel)
+admin.site.register(ProductSizeModel)
+admin.site.register(ProductModel)
+admin.site.register(ProductImageModel)
