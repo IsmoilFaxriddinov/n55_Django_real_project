@@ -120,7 +120,7 @@
                                     {% for blog in blogs %}
                                         <div class="list-content row">
                                         <div class="hover-after col-md-5 col-xs-12">
-                                            <a href="blog-detail.html">
+                                            <a href="{% url "blogs:detail" pk=blog.id %}">
                                                 <img src="{{ blog.image.url }}" alt="img">
                                             </a>
                                         </div>

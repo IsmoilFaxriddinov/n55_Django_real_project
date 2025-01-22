@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-22 14:59+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\blogs\models.py:9 .\blogs\models.py:20 .\blogs\models.py:43
+#: .\shop\models.py:13 .\shop\models.py:25 .\shop\models.py:38
+msgid "title"
+msgstr ""
+
+#: .\blogs\models.py:10 .\shop\models.py:39
+msgid "parent"
+msgstr ""
+
+#: .\blogs\models.py:16 .\shop\models.py:45
+msgid "blog category"
+msgstr ""
+
+#: .\blogs\models.py:17 .\shop\models.py:46
+msgid "blog cetegories"
+msgstr ""
+
+#: .\blogs\models.py:26
+msgid "blog tag"
+msgstr ""
+
+#: .\blogs\models.py:27
+msgid "blog tags"
+msgstr ""
+
+#: .\blogs\models.py:30
+msgid "first_name"
+msgstr ""
+
+#: .\blogs\models.py:31
+msgid "last_name"
+msgstr ""
+
+#: .\blogs\models.py:32
+msgid "avatar"
+msgstr ""
+
+#: .\blogs\models.py:38
+msgid "Blog author"
+msgstr ""
+
+#: .\blogs\models.py:39
+msgid "Blog authors"
+msgstr ""
+
+#: .\blogs\models.py:42
+msgid "image"
+msgstr ""
+
+#: .\blogs\models.py:44 .\shop\models.py:28
+msgid "description"
+msgstr ""
+
+#: .\blogs\models.py:47
+msgid "categories"
+msgstr ""
+
+#: .\blogs\models.py:48 .\shop\models.py:56
+msgid "tags"
+msgstr ""
+
+#: .\blogs\models.py:55
+msgid "Blog"
+msgstr ""
+
+#: .\blogs\models.py:56
+msgid "Blogs"
+msgstr ""
+
+#: .\blogs\models.py:59
+msgid "comment"
+msgstr ""
+
+#: .\blogs\models.py:60
+msgid "user"
+msgstr ""
+
+#: .\blogs\models.py:63
+msgid "blog_author"
+msgstr ""
+
+#: .\blogs\models.py:64
+msgid "blogs"
+msgstr ""
+
+#: .\blogs\models.py:70
+msgid "Blog comment"
+msgstr ""
+
+#: .\blogs\models.py:71
+msgid "Blog comments"
+msgstr ""
+
+#: .\shop\models.py:12
+msgid "code"
+msgstr ""
+
+#: .\shop\models.py:19 .\shop\models.py:26
+msgid "color"
+msgstr ""
+
+#: .\shop\models.py:20
+msgid "colors"
+msgstr ""
+
+#: .\shop\models.py:34
+msgid "Product"
+msgstr ""
+
+#: .\shop\models.py:35
+msgid "Products"
+msgstr ""
+
+#: .\shop\models.py:49
+msgid "name"
+msgstr ""
+
+#: .\shop\models.py:55
+msgid "tag"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:55
+#: .\templates\layouts\header-home.html:307
+msgid "Organic Strawberry Fruits"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:69
+msgid "Total"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:76
+#: .\templates\layouts\header-home.html:327
+msgid "View Cart"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:77
+#: .\templates\layouts\header-base.html:161
+#: .\templates\layouts\header-home.html:328
+msgid "Checkout"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:143
+msgid "My Account"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:149
+msgid "Sign in"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:155
+msgid "Register Account"
+msgstr ""
+
+#: .\templates\layouts\header-base.html:167
+msgid "My Wishlists"
+msgstr ""
+
+#: .\templates\layouts\header-home.html:101
+msgid "Contact US"
+msgstr ""
+
+#: .\templates\layouts\header-home.html:256
+msgid "FREE DELIVERY"
+msgstr ""
+
+#: .\templates\layouts\header-home.html:257
+msgid "From $ 250"
+msgstr ""
+
+#: .\templates\layouts\header-home.html:269
+msgid "MONEY BACK"
+msgstr ""
+
+#: .\templates\layouts\header-home.html:270
+msgid "GUARANTEED"
+msgstr ""
+
+#: .\templates\pages\home.html:60
+msgid "SIDE TABLE"
+msgstr ""
+
+#: .\templates\pages\home.html:65
+msgid "Aliquam lobortis"
+msgstr ""
+
+#: .\templates\pages\home.html:589
+msgid "Modern"
+msgstr ""
+
+#: .\templates\pages\home.html:589
+msgid "Designer"
+msgstr ""
+
+#: .\templates\pages\home.html:589
+msgid "Chair"
+msgstr ""
+
+#: .\templates\pages\home.html:598 .\templates\pages\home.html:609
+msgid "Creative"
+msgstr ""
+
+#: .\templates\pages\home.html:599 .\templates\pages\home.html:610
+msgid "Furniture"
+msgstr ""
+
+#: .\templates\pages\home.html:600 .\templates\pages\home.html:611
+msgid "Design"
+msgstr ""
