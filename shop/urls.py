@@ -5,5 +5,5 @@ app_name="shop"
 
 urlpatterns = [
     path('products/', ProductTemplateView.as_view(), name='list'),
-    path('product/<detail>', ProductDetailTemplateView.as_view(), name='detail'),
+    path('products/detail/', ProductDetailTemplateView.as_view(), name='detail'),
 ]

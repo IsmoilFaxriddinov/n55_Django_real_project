@@ -7,4 +7,4 @@ class ProductTemplateView(ListView):
     model = ProductModel
 
 class ProductDetailTemplateView(TemplateView):
-    template_name = 'shop/products-list.html'
+    template_name = 'shop/product-detail.html'
