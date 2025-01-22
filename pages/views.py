@@ -11,5 +11,6 @@ class ContactTemplateVIew(CreateView):
     template_name = 'pages/contact.html'
     form_class = ContactModelForm
     model = ContactModel
+    success_url = "/contact"
 
     
