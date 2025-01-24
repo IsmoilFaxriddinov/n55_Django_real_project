@@ -633,7 +633,7 @@
                                         <div class="js-product-list-top ">
                                             <div class="d-flex justify-content-around row">
                                                 <div class="showing col col-xs-12">
-                                                    <span>SHOWING 1-3 OF 3 ITEM(S)</span>
+                                                    <span>SHOWING {{ page_obj.number }}-{{ page_obj.paginator.page_range }} OF {{ page_obj.count }} ITEM(S)</span>
                                                 </div>
                                                 <div class="page-list col col-xs-12">
                                                     <ul>
