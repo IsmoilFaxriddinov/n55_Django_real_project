@@ -50,11 +50,11 @@
                                                         <i class="zmdi zmdi-minus"></i>
                                                         <i class="zmdi zmdi-plus"></i>
                                                     </span>
-                                                    <a class="cateItem" href="#">{{ category.title }}</a>
+                                                    <a class="cateItem" href="?cat={{category.id}}">{{ category.title }}</a>
                                                     <div class="subCategory collapse" id="{{category.id}}" aria-expanded="true" role="status">
                                                         {% for child in category.children.all %}
                                                             <div class="cateTitle">
-                                                                <a href="#" class="cateItem">{{ child.title }}</a>
+                                                                <a href="?cat={{child.id}}" class="cateItem">{{ child.title }}</a>
                                                             </div>
                                                         {% endfor %}
                                                     </div>
@@ -76,7 +76,7 @@
                                                             <input type="checkbox">
                                                             <span class="checkmark"></span>
                                                         </label>
-                                                        <a href="#">
+                                                        <a onclick="addUrlParametr('size', {{size.id}})">
                                                             <b>{{ size.name }}</b>
                                                             <span class="quantity">({{ size.products.count }})</span>
                                                         </a>
@@ -190,7 +190,7 @@
                                                 <div>
                                                     <span class="left">
                                                         <label style="background-color: {{ color.0.code }}; border: 1px solid black"></label>
-                                                        <a href="#">
+                                                        <a onclick="addUrlParametr('color', {{color.id}})">
                                                             <span>{{ color.0.title }}
                                                                 <span>({{ color.0.product.count }})</span>
                                                             </span>
@@ -199,7 +199,7 @@
                                                     {% if color.1 %}
                                                         <span class="right">
                                                             <label style="background-color: {{ color.1.code }}; border: 1px solid black"></label>
-                                                            <a href="#">
+                                                            <a onclick="addUrlParametr('color', {{color.id}})">
                                                                 <span>{{color.1.title}}
                                                                     <span>({{ color.1.products.count }})</span>
                                                                 </span>
@@ -220,7 +220,7 @@
                                             <ul class="listSidebarBlog list-unstyled">
                                                 {% for tag in tags %}
                                                 <li>
-                                                    <a href="#" title="Show products matching tag Hot Trend">{{ tag.name }}</a>
+                                                    <a onclick="addUrlParametr('tag', {{tag.id}})" title="Show products matching tag Hot Trend">{{ tag.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -428,4 +428,19 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function addUrlParametr(name,value) {
+    let searchParams = new URLSearchParams(window.location.search)
+    if (searchParams.has(name) && searchParams.get(name) == value){
+    searchParams.delete(name)
+    }else{
+    searchParams.set(name,value)
+    }
+    window.location.search = searchParams.toString()
+    }
+</script>
+
 {% endblock %}

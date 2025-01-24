@@ -11,10 +11,22 @@ class ProductTemplateView(ListView):
     def get_queryset(self):
         products = ProductModel.objects.all()
         q = self.request.GET.get('q')
+        cat = self.request.GET.get('cat')
+        tag = self.request.GET.get('tag')
+        color = self.request.GET.get('color')
+        size = self.request.GET.get('size')
         if q:
             products = products.filter(
                 Q(title__icontains=q) | Q(description__icontains=q)
             )
+        if cat:
+            products = products.filter(Q(categories=cat))
+        if tag:
+            products = products.filter(Q(tags=tag))
+        if color:
+            products = products.filter(Q(colors=color))
+        if size:
+            products = products.filter(Q(sizes=size))
         return products
     
 
