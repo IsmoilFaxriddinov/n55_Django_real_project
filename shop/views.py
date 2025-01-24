@@ -13,9 +13,9 @@ class ProductTemplateView(ListView):
         q = self.request.GET.get('q')
         if q:
             products = products.filter(
-                Q(title_icontains=q) | Q(short_description_icontains=q) | Q(long_description)
+                Q(title__icontains=q) | Q(description__icontains=q)
             )
-        return super().get_queryset()
+        return products
     
 
     def get_context_data(self, **kwargs):

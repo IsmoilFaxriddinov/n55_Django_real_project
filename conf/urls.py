@@ -23,7 +23,7 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('pages.urls', namespace='pages')),
-    path('', include('shop.urls', namespace='shop')),
+    path('', include('shop.urls', namespace='products')),
     path('', include('blogs.urls', namespace='blogs')),
 )
 
