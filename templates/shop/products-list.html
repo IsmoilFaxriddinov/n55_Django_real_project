@@ -603,7 +603,7 @@
                                                                                 <span class="price">{{ product.price }}</span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="discription">{{ product.description }}</div>
+                                                                        <div class="discription">{{ product.description|slice:'200' }}</div>
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
                                                                         <form action="#" method="post" class="formAddToCart">
