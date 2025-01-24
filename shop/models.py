@@ -1,6 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from app_common.models import BaseModel
+
+userModel = get_user_model()
 
 class ColorModel(BaseModel):
     code = models.CharField(max_length=125, verbose_name=_('code'))
@@ -44,7 +47,7 @@ class ProductSizeModel(BaseModel):
     class Meta:
         verbose_name = _('size')
         verbose_name_plural = _('sizes')
-    
+
 class ProductModel(BaseModel):
     image1 = models.ImageField(upload_to='products/')
     image2 = models.ImageField(upload_to='products/')
@@ -52,6 +55,7 @@ class ProductModel(BaseModel):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(verbose_name=_('description'))
     sku = models.CharField(max_length=125)
+    in_stuck = models.BooleanField(default=True)
 
     color = models.ManyToManyField(ColorModel, related_name='colors', verbose_name=_('color'))
     tags = models.ManyToManyField(TagModel, related_name='tags', verbose_name=_('tags'))
@@ -68,3 +72,12 @@ class ProductModel(BaseModel):
 class ProductImageModel(models.Model):
     product = models.ForeignKey(ProductModel, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='products/images/')
+
+class ProductCommentModel(BaseModel):
+    comment = models.CharField(max_length=125, verbose_name=_('comment'))
+    user = models.ForeignKey(userModel, on_delete=models.CASCADE, related_name='user')
+    product = models.ForeignKey(ProductModel, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.user.username
+    
