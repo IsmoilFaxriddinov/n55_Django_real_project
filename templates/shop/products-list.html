@@ -1,6 +1,7 @@
     {% extends "layouts/base.html" %}
 {% load static %}
 {% block body %}id="product-sidebar-left" class="product-grid-sidebar-left"{% endblock %}
+{% block title %}Products{% endblock title %}
 {% block content %}
 <div class="main-content">
     <div id="wrapper-site">
@@ -633,36 +634,31 @@
                                         <div class="js-product-list-top ">
                                             <div class="d-flex justify-content-around row">
                                                 <div class="showing col col-xs-12">
-                                                    <span>SHOWING {{ page_obj.number }}-{{ page_obj.paginator.page_range }} OF {{ page_obj.count }} ITEM(S)</span>
+                                                    <span>SHOWING {{ page_obj.start_index }}-{{ page_obj.end_index }} OF {{ page_obj.paginator.count }} ITEM(S)</span>
                                                 </div>
                                                 <div class="page-list col col-xs-12">
                                                     <ul>
+                                                        {% if page_obj.has_previous %}
                                                         <li>
-                                                            <a rel="prev" href="#" class="previous disabled js-search-link">
+                                                            <a rel="prev" href="?page={{ page_obj.previous_page_number }}" class="previous disabled js-search-link">
                                                                 Previous
                                                             </a>
                                                         </li>
-                                                        <li class="current active">
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                1
+                                                        {% endif %}
+                                                        {% for page in page_obj.paginator.page_range %}
+                                                        <li class="current {% if page_obj.number == page %}active{% endif %}">
+                                                            <a rel="nofollow" href="?page={{ page }}" class="disabled js-search-link">
+                                                                {{ page }}
                                                             </a>
                                                         </li>
+                                                        {% endfor %}
+                                                        {% if page_obj.has_next %}
                                                         <li>
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                2
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                3
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a rel="next" href="#" class="next disabled js-search-link">
+                                                            <a rel="next" href="?page={{ page_obj.next_page_number }}" class="next disabled js-search-link">
                                                                 Next
                                                             </a>
                                                         </li>
+                                                        {% endif %}
                                                     </ul>
                                                 </div>
                                             </div>
