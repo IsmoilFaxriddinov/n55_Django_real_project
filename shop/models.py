@@ -5,7 +5,7 @@ from app_common.models import BaseModel
 
 userModel = get_user_model()
 
-class ColorModel(BaseModel):
+class ProductColorModel(BaseModel):
     code = models.CharField(max_length=125, verbose_name=_('code'))
     title = models.CharField(max_length=125, verbose_name=_('title'))
 
@@ -28,7 +28,7 @@ class ProductCategoryModel(BaseModel):
         verbose_name = _('blog category')
         verbose_name_plural = _('blog cetegories')
 
-class TagModel(BaseModel):
+class ProductTagModel(BaseModel):
     name = models.CharField(max_length=125, verbose_name=_('name'))
 
     def __str__(self):
@@ -57,8 +57,8 @@ class ProductModel(BaseModel):
     sku = models.CharField(max_length=125)
     in_stuck = models.BooleanField(default=True)
 
-    color = models.ManyToManyField(ColorModel, related_name='colors', verbose_name=_('color'))
-    tags = models.ManyToManyField(TagModel, related_name='tags', verbose_name=_('tags'))
+    color = models.ManyToManyField(ProductColorModel, related_name='colors', verbose_name=_('color'))
+    tags = models.ManyToManyField(ProductTagModel, related_name='tags', verbose_name=_('tags'))
     categories = models.ManyToManyField(ProductCategoryModel, related_name='categories', verbose_name=_('categories'))
     sizes = models.ManyToManyField(ProductSizeModel, related_name='sizes', verbose_name=_('size'))
 
