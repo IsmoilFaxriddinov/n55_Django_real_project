@@ -20,11 +20,25 @@ class ProductTemplateView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["sizes"] = ProductSizeModel
-        context["colors"] = ProductColorModel
-        context["categories"] = ProductCategoryModel
-        context["tags"] = ProductTagModel
+        context["sizes"] = ProductSizeModel.objects.all()
+        context["colors"] = self.format_colors()
+        context["categories"] = ProductCategoryModel.objects.all()
+        context["tags"] = ProductTagModel.objects.all()
         return context
+    
+    @staticmethod
+    def format_colors():
+        colors = ProductColorModel.objects.all()
+        result = []
+        temp_list = []
+        for color in colors:
+            temp_list.append(color)
+            if len(temp_list) == 2:
+                result.append(temp_list)
+                temp_list = []
+        if len(temp_list) == 1:
+            result.append(temp_list)
+        return result
     
 
 class ProductDetailTemplateView(TemplateView):
