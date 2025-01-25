@@ -106,8 +106,8 @@
                         <ul class="menu-top navbar-nav">
                             <li><a href="{% url "pages:home" %}" class="parent">Home</a></li>
                             <li><a href="{% url "blogs:list" %}" class="parent">Blog</a></li>
-                            <li><a href="{% url "blogs:list" %}" class="parent">About</a></li>
-                            <li><a href="#" class="parent">Products</a></li>
+                            <li><a href="{% url "pages:about" %}" class="parent">About</a></li>
+                            <li><a href="{% url "shop:list" %}" class="parent">Products</a></li>
                             <li><a href="{% url "pages:contact" %}" class="parent">Contact US</a></li>
                         </ul>
                     </div>
@@ -118,7 +118,8 @@
                     <form method="get" action="{% url "products:list" %}">
 
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input onclick="addUrlParametr('q', this.value)" type="text" name="q" value="{{request.GET.q}}" placeholder="Search" class="ui-autocomplete-input" autocomplete="off">
+                        <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search" class="ui-autocomplete-input" autocomplete="off">
+                    
                         <button type="submit">
                             <i class="fa fa-search"></i>
                         </button>

@@ -13,4 +13,6 @@ class ContactTemplateVIew(CreateView):
     model = ContactModel
     success_url = "/contact"
 
+class AboutTemplateView(TemplateView):
+    template_name = 'pages/about-us.html'
     

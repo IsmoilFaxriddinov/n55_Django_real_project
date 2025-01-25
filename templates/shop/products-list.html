@@ -241,15 +241,15 @@
                                                     </li>
                                                 </ul>
                                                 <div class="hidden-sm-down total-products">
-                                                    <p>There are 12 products.</p>
+                                                    <p>There are {{ products_count }} products.</p>
                                                 </div>
                                             </div>
                                             <div class="col col-xs-12">
                                                 <div class="d-flex sort-by-row justify-content-lg-end justify-content-md-end">
 
                                                     <div class="products-sort-order dropdown">
-                                                        <select class="select-title">
-                                                            <option onchange="addUrlParametr('sort', this.value)" value="">Sort by</option>
+                                                        <select onchange="addUrlParametr('sort', this.value)" class="select-title">
+                                                            <option value="">Sort by</option>
                                                             <option value="title">Name, A to Z</option>
                                                             <option value="-title">Name, Z to A</option>
                                                             <option value="price">Price, low to high</option>
@@ -273,9 +273,9 @@
                                                             </a>
                                                             <div class="highlighted-informations">
                                                                 <div class="variant-links">
-                                                                    <a href="#" class="color beige" title="Beige"></a>
-                                                                    <a href="#" class="color orange" title="Orange"></a>
-                                                                    <a href="#" class="color green" title="Green"></a>
+                                                                   {% for color in product.colors.all %}
+                                                                        <a href="#" style="background-color: {{ color.code }}; border: 1px solid black" class="color beige" title="Beige"></a>
+                                                                   {% endfor %}
                                                                 </div>
                                                             </div>
                                                         </div>

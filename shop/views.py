@@ -18,8 +18,7 @@ class ProductTemplateView(ListView):
         sort:str = self.request.GET.get('sort')
         if q:
             products = products.filter(
-                Q(title__icontains=q) | Q(description__icontains=q)
-            )
+                Q(title__icontains=q))
         if cat:
             products = products.filter(Q(categories=cat))
         if tag:
@@ -29,7 +28,7 @@ class ProductTemplateView(ListView):
         if size:
             products = products.filter(Q(sizes=size))
         if sort:
-            products = products.order_by('')
+            products = products.order_by(sort)
         return products
     
 
@@ -39,6 +38,7 @@ class ProductTemplateView(ListView):
         context["colors"] = self.format_colors()
         context["categories"] = ProductCategoryModel.objects.all()
         context["tags"] = ProductTagModel.objects.all()
+        context["products_count"] = ProductModel.objects.count()
         return context
     
     @staticmethod

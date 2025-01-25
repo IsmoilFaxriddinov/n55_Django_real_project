@@ -96,6 +96,7 @@
                         <ul class="menu-top navbar-nav">
                             <li class="nav-link"><a href="{% url "pages:home" %}" class="parent">Home</a></li>
                             <li><a href="{% url "blogs:list" %}" class="parent">Blog</a></li>
+                            <li><a href="{% url "pages:about" %}" class="parent">About</a></li>
                             <li><a href="{% url "shop:list" %}" class="parent">Products</a></li>
                             <li>
                                 <a href="{% url "pages:contact" %}" class="parent">{% trans "Contact US" %}</a>
@@ -280,7 +281,7 @@
                     <form method="get" action="#">
 
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input type="text" name="s" value="" placeholder="Search" class="ui-autocomplete-input" autocomplete="off">
+                        <input type="text" name="q" value="" placeholder="Search" class="ui-autocomplete-input" autocomplete="off">
                         <button type="button">
                             <i class="fa fa-search"></i>
                         </button>
