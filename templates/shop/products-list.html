@@ -50,11 +50,11 @@
                                                         <i class="zmdi zmdi-minus"></i>
                                                         <i class="zmdi zmdi-plus"></i>
                                                     </span>
-                                                    <a class="cateItem" href="?cat={{category.id}}">{{ category.title }}</a>
+                                                    <a class="cateItem" onclick="addUrlParametr('cat', {{category.id}})">{{ category.title }}</a>
                                                     <div class="subCategory collapse" id="{{category.id}}" aria-expanded="true" role="status">
                                                         {% for child in category.children.all %}
                                                             <div class="cateTitle">
-                                                                <a href="?cat={{child.id}}" class="cateItem">{{ child.title }}</a>
+                                                                <a onclick="addUrlParametr('cat', {{child.id}})" class="cateItem">{{ child.title }}</a>
                                                             </div>
                                                         {% endfor %}
                                                     </div>
@@ -249,11 +249,11 @@
 
                                                     <div class="products-sort-order dropdown">
                                                         <select class="select-title">
-                                                            <option value="">Sort by</option>
-                                                            <option value="">Name, A to Z</option>
-                                                            <option value="">Name, Z to A</option>
-                                                            <option value="">Price, low to high</option>
-                                                            <option value="">Price, high to low</option>
+                                                            <option onchange="addUrlParametr('sort', this.value)" value="">Sort by</option>
+                                                            <option value="asc">Name, A to Z</option>
+                                                            <option value="desc">Name, Z to A</option>
+                                                            <option value="price">Price, low to high</option>
+                                                            <option value="-price">Price, high to low</option>
                                                         </select>
                                                     </div>
                                                 </div>

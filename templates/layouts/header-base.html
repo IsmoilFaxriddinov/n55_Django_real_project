@@ -118,7 +118,7 @@
                     <form method="get" action="{% url "products:list" %}">
 
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search" class="ui-autocomplete-input" autocomplete="off">
+                        <input onclick="addUrlParametr('q', this.value)" type="text" name="q" value="{{request.GET.q}}" placeholder="Search" class="ui-autocomplete-input" autocomplete="off">
                         <button type="submit">
                             <i class="fa fa-search"></i>
                         </button>
