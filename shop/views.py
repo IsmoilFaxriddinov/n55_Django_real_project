@@ -6,7 +6,7 @@ from shop.models import *
 class ProductTemplateView(ListView):
     template_name = 'shop/products-list.html'
     context_object_name = 'products'
-    paginate_by = 1
+    paginate_by = 3
 
     def get_queryset(self):
         products = ProductModel.objects.all()
@@ -15,6 +15,7 @@ class ProductTemplateView(ListView):
         tag = self.request.GET.get('tag')
         color = self.request.GET.get('color')
         size = self.request.GET.get('size')
+        sort:str = self.request.GET.get('sort')
         if q:
             products = products.filter(
                 Q(title__icontains=q) | Q(description__icontains=q)
@@ -27,6 +28,8 @@ class ProductTemplateView(ListView):
             products = products.filter(Q(colors=color))
         if size:
             products = products.filter(Q(sizes=size))
+        if sort:
+            products = products.order_by('')
         return products
     
 
