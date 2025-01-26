@@ -22,7 +22,7 @@ class BlogListView(ListView):
         context = super().get_context_data(**kwargs)
         context["categories"] = BlogCategoryModel.objects.all()
         context["recent_blogs"] = BlogModel.objects.order_by('-created_at')[:2]
-        context["tags"] = BlogTagModel.objects.all()
+        context["tags"] = BlogTagModel.objects.all()    
         return context
     
 
