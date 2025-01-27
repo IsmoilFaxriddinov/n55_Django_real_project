@@ -5,6 +5,7 @@ from blogs.models import BlogCategoryModel, BlogModel, BlogTagModel
 class BlogListView(ListView):
     template_name = 'blogs/blog-list.html'
     context_object_name = 'blogs'
+    paginate_by = 1
 
     def get_queryset(self):
         
