@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, DetailView
 
 from shop.models import *
 
@@ -56,5 +56,8 @@ class ProductTemplateView(ListView):
         return result
     
 
-class ProductDetailTemplateView(TemplateView):
+class ProductDetailTemplateView(DetailView):
     template_name = 'shop/product-detail.html'
+    model = ProductModel
+    context_object_name = 'product'
+    
