@@ -25,7 +25,8 @@ urlpatterns = i18n_patterns(
     path('', include('pages.urls', namespace='pages')),
     path('products/', include('shop.urls', namespace='products')),
     path('blogs/', include('blogs.urls', namespace='blogs')),
-    path("orders/", include('orders.urls'), name="orders")
+    path("orders/", include('orders.urls'), name="orders"),
+    path("users/", include('users.urls'), name="users")
 )
 
 

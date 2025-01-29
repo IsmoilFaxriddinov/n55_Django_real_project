@@ -15,7 +15,16 @@ def add_or_remove_cart(request, pk):
     return redirect(next)
 
 def add_or_remove_wishlist(request, pk):
-    ...
+    wishlist: list = request.session.get('wishlist', [])
+    if pk in wishlist:
+        wishlist.append(pk)
+    else:
+        wishlist.remove(pk)
+
+    request.session['wishlist'] = wishlist
+    next = request.GET.get('next', reverse_lazy('products:list'))
+    return redirect(next)
+
 
 class Wishlist_View(TemplateView):
     template_name = 'shop/product-cart.html'
