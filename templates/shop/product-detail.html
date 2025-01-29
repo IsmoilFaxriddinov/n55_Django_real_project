@@ -410,8 +410,13 @@
                                                         <span class="price">£150.00</span>
                                                         <span class="float-right">
                                                             <span class="availb">Availability: </span>
+                                                            {% if product.in_stock %}
                                                             <span class="check">
                                                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>IN STOCK</span>
+                                                            {% else %}
+                                                            <span style="color: red" class="check">
+                                                                <i class="fa fa-check-square-o" aria-hidden="true"></i>NOT IN STOCK</span>
+                                                            {% endif %}
                                                         </span>
                                                     </div>
                                                     <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean lorem quis bibendum
