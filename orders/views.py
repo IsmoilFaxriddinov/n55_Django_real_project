@@ -1,4 +1,5 @@
 from django.shortcuts import redirect
+from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 
 
@@ -15,3 +16,6 @@ def add_or_remove_cart(request, pk):
 
 def add_or_remove_wishlist(request, pk):
     ...
+
+class Wishlist_View(TemplateView):
+    template_name = 'shop/product-cart.html'
