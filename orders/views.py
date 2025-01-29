@@ -1,4 +1,5 @@
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 
 
 def add_or_remove_cart(request, pk):
@@ -9,7 +10,8 @@ def add_or_remove_cart(request, pk):
         cart.append(pk)
 
     request.session['cart'] = cart
-    return redirect()
+    next = request.GET.get('next', reverse_lazy('products:list'))
+    return redirect(next)
 
 def add_or_remove_wishlist(request, pk):
     ...

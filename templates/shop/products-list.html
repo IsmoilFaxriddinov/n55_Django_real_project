@@ -1,5 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load static %}
+{% load order_tag %}
 {% block body %}id="product-sidebar-left" class="product-grid-sidebar-left"{% endblock %}
 {% block title %}Products{% endblock title %}
 {% block content %}
@@ -302,8 +303,8 @@
                                                             <div class="product-buttons d-flex justify-content-center">
                                                                 <form action="#" method="post" class="formAddToCart">
                                                                     <input type="hidden" name="id_product" value="1">
-                                                                    <a class="add-to-cart" href="{% url "orders:add-or-remove-cart" pk=product.id %}" data-button-action="add-to-cart">
-                                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                    <a class="add-to-cart" href="{% url "orders:add-or-remove-cart" pk=product.id %}?next={{request.path}}?{{request.GET.urlencode}}" data-button-action="add-to-cart">
+                                                                        <i {% if request|in_cart:product.id %}style="color: red"{% endif %} class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                     </a>
                                                                 </form>
                                                                 <a class="addToWishlist" href="#" data-rel="1" onclick="">
