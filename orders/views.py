@@ -17,9 +17,9 @@ def add_or_remove_cart(request, pk):
 def add_or_remove_wishlist(request, pk):
     wishlist: list = request.session.get('wishlist', [])
     if pk in wishlist:
-        wishlist.append(pk)
-    else:
         wishlist.remove(pk)
+    else:
+        wishlist.append(pk)
 
     request.session['wishlist'] = wishlist
     next = request.GET.get('next', reverse_lazy('products:list'))
