@@ -1,6 +1,6 @@
 from django.urls import path
 
-from users.views import RegisterView
+from users.views import RegisterView, confirm_email
 
 app_name = 'users'
 
@@ -12,5 +12,5 @@ urlpatterns = [
     # path("update/password/", RegisterView.as_view(), name="register"),
     # path("forget/password/", RegisterView.as_view(), name="register"),
     # path("verification/recent/", RegisterView.as_view(), name="register"),
-    path("verification/", verify_email, name="confirm-email"),
+    path("verification/", confirm_email, name="confirm-email"),
 ]

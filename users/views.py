@@ -41,8 +41,8 @@ def confirm_email(request, uid, token):
         user.is_active = True
         user.save()
         messages.success(request, 'Your email address id verified')
-        return redirect('users:login')
+        return redirect('/')
     else:
         messages.success(request, 'Link is not correnct')
-        return redirect('users:login')
+        return redirect('/')
         
