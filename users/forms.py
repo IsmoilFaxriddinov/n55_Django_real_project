@@ -30,4 +30,14 @@ class LoginForm(forms.Form):
         else:
             raise forms.ValidationError('Username or password invalid !')
         return self.cleaned_data
-    
+
+class AccountForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields = ['first_name', 'last_name', 'email', 'username']
+
+class PasswordUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields = ['first_name', 'last_name', 'email', 'username']
+
