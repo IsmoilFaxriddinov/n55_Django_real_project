@@ -35,9 +35,3 @@ class AccountForm(forms.ModelForm):
     class Meta:
         model = UserModel
         fields = ['first_name', 'last_name', 'email', 'username']
-
-class PasswordUpdateForm(forms.ModelForm):
-    class Meta:
-        model = UserModel
-        fields = ['first_name', 'last_name', 'email', 'username']
-

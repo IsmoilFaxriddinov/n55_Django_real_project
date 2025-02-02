@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import View
@@ -72,3 +73,7 @@ class AccountUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+class UpdatePasswordView(FormView):
+    template_name = 'auth/update-password.html'
+    form_class = PasswordChangeForm
