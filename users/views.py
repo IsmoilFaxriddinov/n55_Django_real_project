@@ -77,3 +77,12 @@ class AccountUpdateView(LoginRequiredMixin, UpdateView):
 class UpdatePasswordView(FormView):
     template_name = 'auth/update-password.html'
     form_class = PasswordChangeForm
+    success_url = reverse_lazy('users:account')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+    
+    
