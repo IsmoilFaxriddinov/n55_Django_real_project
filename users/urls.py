@@ -12,5 +12,5 @@ urlpatterns = [
     # path("update/password/", RegisterView.as_view(), name="register"),
     # path("forget/password/", RegisterView.as_view(), name="register"),
     # path("verification/recent/", RegisterView.as_view(), name="register"),
-    path("verification/", verify_email, name="confirm_email"),
+    path("verification/", verify_email, name="confirm-email"),
 ]
