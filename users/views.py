@@ -9,6 +9,10 @@ class RegisterView(CreateView):
     success_url = '/'
 
     def form_valid(self, form):
+        user = form.save(commit=False)
+        user.is_active = False
+        user.save()
+
         return super().form_valid(form)
     
     def form_invalid(self, form):
