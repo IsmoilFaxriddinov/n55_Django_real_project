@@ -79,7 +79,15 @@ class UpdatePasswordView(FormView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('users:account')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
     def form_valid(self, form):
+        user = self.request.user
+        self.request.user.set_password(raw_password=form.cleaned_data['new_password1'])
+        user.save()
         return super().form_valid(form)
     
     def form_invalid(self, form):
