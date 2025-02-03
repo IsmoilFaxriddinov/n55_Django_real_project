@@ -91,6 +91,7 @@ class UpdatePasswordView(FormView):
         return super().form_valid(form)
     
     def form_invalid(self, form):
+        print(form.errors)
         return super().form_invalid(form)
     
     
