@@ -12,7 +12,7 @@ def in_cart(request, pk):
 def get_user_cart(request):
     cart = request.session.get('cart', [])
     products = ProductModel.objects.filter(pk__in=cart)
-    return products       
+    return products 
 
 
 @register.filter

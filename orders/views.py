@@ -1,6 +1,8 @@
 from django.shortcuts import redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.urls import reverse_lazy
+
+from shop.models import ProductModel
 
 
 def add_or_remove_cart(request, pk):
@@ -28,3 +30,15 @@ def add_or_remove_wishlist(request, pk):
 
 class Wishlist_View(TemplateView):
     template_name = 'shop/product-wishlist.html'
+
+class UserCartListView(ListView):
+    template_name = 'shop/product-cart.html'
+    context_object_name = 'products'
+    paginate_by = 10
+
+    def get_queryset(self):
+        cart = self.request.session.get('cart', [])
+        products = ProductModel.objects.filter(id__in=cart)
+
+        return products
+    
