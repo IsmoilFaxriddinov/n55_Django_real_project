@@ -1,8 +1,12 @@
 from django.shortcuts import redirect
+from django.contrib import messages
 from django.views.generic import TemplateView, ListView, FormView
 from django.urls import reverse_lazy
+from django.db.models.aggregates import Sum
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from orders.forms import CheckoutForm
+from orders.models import OrderItem, OrderModel
 from shop.models import ProductModel
 
 
@@ -43,7 +47,31 @@ class UserCartListView(ListView):
 
         return products
 
-class CheckoutCreateView(FormView):
+class CheckoutCreateView(LoginRequiredMixin, FormView):
     template_name = 'shop/product-checkout.html'
     form_class = CheckoutForm
     success_url = reverse_lazy("users:account")
+
+    def calculate_total_price(self, products):
+        total = 0
+        for product in products:
+            total += product.price
+        return total
+
+    def form_valid(self, form):
+        user = self.request.user
+        cart = self.request.session.get('cart', [])
+        products = ProductModel.objects.filter(id__in=cart)
+        if len(products) == 0:
+            messages.info(self.request, "Add some products")
+            return redirect(reverse_lazy("shop:list"))
+        else:
+            order = OrderModel.objects.create(user=user, status=False, total_amound=self.calculate_total_price(products), total_product=len(products))
+            for product in products:
+                product_info = ProductModel.objects.get(id=product.id)
+                OrderItem.objects.create(order=order, quantity=1, product=product, product_name=product_info.title, product_price=product_info.price)
+            return redirect(reverse_lazy('users:account'))
+    
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+    
