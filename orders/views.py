@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView, ListView, FormView
 from django.urls import reverse_lazy
 
+from orders.forms import CheckoutForm
 from shop.models import ProductModel
 
 
@@ -44,8 +45,5 @@ class UserCartListView(ListView):
 
 class CheckoutCreateView(FormView):
     template_name = 'shop/product-checkout.html'
-    form_class = ...
+    form_class = CheckoutForm
     success_url = reverse_lazy("users:account")
-
-    
-    
