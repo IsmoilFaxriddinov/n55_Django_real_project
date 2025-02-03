@@ -1,7 +1,7 @@
 import threading
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, update_session_auth_hash
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -85,9 +85,11 @@ class UpdatePasswordView(FormView):
         return kwargs
 
     def form_valid(self, form):
+        data = form.cleaned_data
         user = self.request.user
-        self.request.user.set_password(raw_password=form.cleaned_data['new_password1'])
+        user.set_password(raw_password=data['new_password1'])
         user.save()
+
         return super().form_valid(form)
     
     def form_invalid(self, form):
