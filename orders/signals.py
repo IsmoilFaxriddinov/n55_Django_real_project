@@ -6,6 +6,6 @@ from shop.models import ProductModel
 @receiver(pre_save, sender=ProductModel)
 def update_product_price(sender, instance, **kwargs):
     if instance.discount:
-        instance.discount_price = instance.price - (instance.price * 100 / instance.discount)
+        instance.discount_price = instance.price - (instance.price * instance.discount / 100)
     else:
         instance.discount_price = instance.price
