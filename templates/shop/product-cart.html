@@ -1,7 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load static %}
-{% load order_tag %}
-{% block title %}All Wishlist{% endblock title %}
+{% block title %}All Cart{% endblock title %}
 {% block body %}class="product-cart checkout-cart blog"{% endblock body %}
 {% block content %}
 <!-- main content -->
@@ -33,11 +32,10 @@
                     <section id="main">
                         <div class="cart-grid row">
                             <div class="col-md-9 col-xs-12 check-info">
-                                <h1 class="title-page">All Wishlist</h1>
+                                <h1 class="title-page">All Cart</h1>
                                 <div class="cart-container">
                                     <div class="cart-overview js-cart">
                                         <ul class="cart-items">
-                                            {% get_user_wishlist request as products %}
                                             {% for product in products %}
                                             <li class="cart-item">
                                                 <div class="product-line-grid row justify-content-between">
@@ -103,7 +101,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="product-checkout.html" class="continue btn btn-primary pull-xs-right">
+                                <a href="{% url "shop:list" %}" class="continue btn btn-primary pull-xs-right">
                                     Continue
                                 </a>
                             </div>
