@@ -53,6 +53,7 @@ class ProductModel(BaseModel):
     image2 = models.ImageField(upload_to='products/')
     title = models.CharField(max_length=125, verbose_name=_('title'))
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount_price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(verbose_name=_('description'))
     sku = models.CharField(max_length=125)
     in_stuck = models.BooleanField(default=True)
