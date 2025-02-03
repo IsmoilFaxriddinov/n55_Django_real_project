@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, FormView
 from django.urls import reverse_lazy
 
 from shop.models import ProductModel
@@ -41,4 +41,11 @@ class UserCartListView(ListView):
         products = ProductModel.objects.filter(id__in=cart)
 
         return products
+
+class CheckoutCreateView(FormView):
+    template_name = 'shop/product-checkout.html'
+    form_class = ...
+    success_url = reverse_lazy("users:account")
+
+    
     
