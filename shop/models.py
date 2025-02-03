@@ -51,6 +51,7 @@ class ProductSizeModel(BaseModel):
 class ProductModel(BaseModel):
     image1 = models.ImageField(upload_to='products/')
     image2 = models.ImageField(upload_to='products/')
+    discount = models.SmallIntegerField(null=True, blank=True)
     title = models.CharField(max_length=125, verbose_name=_('title'))
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount_price = models.DecimalField(max_digits=10, decimal_places=2)
