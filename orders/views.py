@@ -27,4 +27,4 @@ def add_or_remove_wishlist(request, pk):
 
 
 class Wishlist_View(TemplateView):
-    template_name = 'shop/product-cart.html'
+    template_name = 'shop/product-wishlist.html'
