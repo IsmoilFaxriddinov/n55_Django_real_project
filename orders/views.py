@@ -70,6 +70,8 @@ class CheckoutCreateView(LoginRequiredMixin, FormView):
             for product in products:
                 product_info = ProductModel.objects.get(id=product.id)
                 OrderItem.objects.create(order=order, quantity=1, product=product, product_name=product_info.title, product_price=product_info.price)
+            self.request.session['cart'] = []
+            
             return redirect(reverse_lazy('users:account'))
     
     def form_invalid(self, form):
